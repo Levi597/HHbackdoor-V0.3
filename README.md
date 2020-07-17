@@ -8,6 +8,7 @@ You will need to create your own ftp server to HHbackdoor work i will not add my
 ### Python
 
 <img src="http://pcprotect.eu5.org/github.gif">
+First Extract  Python2.zip Then Put Python1.zip In The Python Folder And Extract It.  
 
 # Requirements
 
