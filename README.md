@@ -14,7 +14,7 @@ Then you can delete these.
 
 # Requirements
 
-You will need to download Winscp&Pyhton here and extract ir in HHBackdoor-Console Directory
+You will need to download Winscp&Pyhton here and extract it in HHBackdoor-Console Directory
 
 ## Winscp
 
