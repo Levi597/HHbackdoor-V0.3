@@ -38,4 +38,5 @@ You will need to download Winscp&Pyhton here and extract it in HHBackdoor-Consol
     <img alt="Download" src="http://pcprotect.eu5.org/download.gif">
 </a>
 
-
+# License
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons Licenc" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />Ez a Mű a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Nevezd meg! - Ne add el! - Ne változtasd! 4.0 Nemzetközi Licenc</a> feltételeinek megfelelően felhasználható.
