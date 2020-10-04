@@ -1,4 +1,4 @@
-rem pack1install nonftp HHB V0.3 L.I
+rem pack1install nonftp HHB V0.3.1 L.I
 @echo off
 :start
 if exist %appdata%\temp_setupfiles\batch.log goto installmisc
