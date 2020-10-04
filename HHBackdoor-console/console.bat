@@ -47,8 +47,7 @@ for /f "tokens=1* delims=: " %%A in (
 ) Do set ExtIP=%%B
 Echo External IP is : %ExtIP%
 echo %ExtIP% > ip.hhip
-ftp\App\winscp\winscp.com /command "open ftp://pcprotect.eu5.org:levente1111@pcprotect.eu5.org" "put ip.hhip" "exit"
-ftp\App\winscp\winscp.com /command "open ftp://pcprotect.eu5.org:levente1111@pcprotect.eu5.org" "get /*.hhu" "exit"
+your servers here {}
 cls
 :connect
 cls
