@@ -4,7 +4,7 @@
 Only for educational purposes
 You will need to create your own ftp server to HHbackdoor work i will not add my server cuz security reasons!
 
-# New Version comming in September!
+# HH-Custom-Command is comming OCT 5
 
 # Tutorial
 
