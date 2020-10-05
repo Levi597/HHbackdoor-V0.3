@@ -89,17 +89,20 @@ echo. or firewall blocking the ftp connection
 echo. or the %username% is not connected to internet
 pause
 goto connect
+:connectionwait
+ping 127.0.0.1 -n 5 > nul
+goto display
 :connectiongot
 echo connected to %username%(hhu)
 echo listening connection
 set command =
 set /p command=console.%username%/
 echo %command% > storage\usercmd.command
-if '%cmd%'=='exit' goto connection
-if '%cmd%'=='restart' goto connectsucces
 if exist storage\%username%cmd.log goto display
 :display
-ping localhost -n 6 >nul
+if exist storage\displaycommand.txt goto displaycommand
+if not exist storage\displaycommand.txt goto connectionwait
+:displaycommand
 echo __________________________________________
 echo Command from %username%
 echo __________________________________________
@@ -112,8 +115,12 @@ echo __________________________________________
     ENDLOCAL
 	)
 echo __________________________________________
-ping localhost -n 6 >nul
-:delete 
+pause
+:ready
+xcopy %cd%\readynow.txt %cd%\storage
+ping 127.0.0.1 -n 2 > nul
+:delete
+del storage\displaycommand.txt
 del storage\%username%cmd.log
 del storage\%username%cmd.command 
 goto connectiongot
