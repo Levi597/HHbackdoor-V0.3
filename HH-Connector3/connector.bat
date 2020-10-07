@@ -95,11 +95,12 @@ echo _____________________________________
 echo             Connecting!
 echo _____________________________________
 ftp -A -s:handleftp.txt
+:deleting
+ftp -A -s:delcommand.txt
 :checking 
 del %USERNAME%cmd.log
 del %USERNAME%cmd.command
 del readynow.txt
-ftp -A -s:delcommand.txt
 echo _____________________________________
 echo             Checking!
 echo _____________________________________
@@ -145,7 +146,7 @@ del %USERNAME%cmd.command
 ftp -A -s:displaycommand.txt
 :readyloop
 ftp -A -s:ready.txt
-if exist readynow.txt goto checking
+if exist readynow.txt goto deleting
 if not exist readynow.txt goto readyloop
 :downloadstate
 echo _____________________________________
