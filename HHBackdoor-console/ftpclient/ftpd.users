@@ -1,9 +1,0 @@
-<virtualserver 192.168.0.185:21012>
-
-<username "Victim">
-UserNotes:"HHBACKDOOR"
-VirtualPath: "/|c:\Users\User\Desktop\HHBV0.3CONSOLE\files\|RW-LA--S"
-</username>
-
-</virtualserver>
-
